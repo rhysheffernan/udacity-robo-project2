@@ -34,8 +34,11 @@ void process_image_callback(const sensor_msgs::Image img)
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
     
-    for (int i = 0; i < img.height; i++){
-        for (int j=0; j < img.width; j++){
+    
+    //ROS_INFO_STREAM("TEST");  
+    
+    for (int j=0; j < img.width; j++){
+        for (int i = 0; i < img.height; i++){
             int pixel = 3*j + img.step*i; 
             if (img.data[pixel] == white_pixel & img.data[pixel+1] == white_pixel & img.data[pixel+2] == white_pixel) {
                 //ROS_INFO_STREAM(std::to_string(j));  
